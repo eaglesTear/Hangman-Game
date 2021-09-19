@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman Game</title>
+    <link rel="shortcut icon" href="media/images/svg/hangman-brand.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Menu panel at the top of browser whereby game can be controlled -->
+    <nav class="menu-panel">
+
+        <div class="panel-left">
+            <img class="logo" src="media/images/svg/hangman-brand.svg" alt="hanging man logo">
+            <h1 class="main-title">HANGMAN</h1>
+        </div>
+
+        <div class="panel-right">
+            <button id="start">Start Game (Normal)</button>
+            <button id="hard-mode">Enable Hard Mode</button>
+            <button id="open-btn">☰ Categories</button>
+        </div>
+
+    </nav>
+
+    <!-- Sidebar containing category select buttons -->
+    <div id="cat-sidebar" class="sidebar">
+
+        <a href="javascript:void(0)" id="close-btn">×</a>
+        <h2>CATEGORIES</h2>
+
+        <button id="food">Food</button>
+        <button id="countries">Countries</button>
+        <button id="nouns">Nouns</button>
+        <button id="animals">Animals</button>
+        <button id="movies">Movies</button>
+        <button id="video-games">Video Games</button>
+        <button id="random-word">3 Random Words Challenge</button>
+        <button id="user-choice">Guess My Word!</button>
+
+    </div>
+
+    <!-- Overlay with content / messages. Displayed post-round & game over -->
+    <div id="myNav" class="overlay">
+
+        <div class="overlay-content">
+
+            <section id="round-end-display">
+                <p id="end-round-text"></p>
+                <p id="word-answer"></p>
+                <p id="game-text"></p>
+                <p id="hi-score"></p>
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- Wordnik API and sfx acknowledgements -->
+    <h3>
+        <i>Random Words </i>category is brought to you courtesy of <a href="https://www.wordnik.com/">Wordnik.</a><br>
+        Special thanks to <span class="credits">Matheus</span> for the button UI SFX and <span class="credits">Cleyton Kauffman</span> for the music, available from <a href="https://opengameart.org/">OpenGameArt.</a><br>
+        Game design and programming by <span class="credits">Ryan Hadley.</span>
+    </h3>
+
+    <!-- Main flex container for positioning and styling purposes -->
+    <section class="main-flex-wrapper">
+
+        <!-- Section containing game rules -->
+        <section class="rules">
+            <h2>Rules and Instructions</h2>
+
+            <ul>
+                <li>To begin, select a category from the panel at the top of the page and then select <i>Start Game</i></li>
+                <li>A word box is then generated containing the mystery word. Enter your guess letter and press <i>Submit</i></li>
+                <li>The game is played in rounds; successfully guessing a word will end the round and load the next word</li>
+                <li>Selecting <i>Hard Mode</i> ensures that your penalties carry over between rounds when ordinarily they'd reset. That means 10 guesses only throughout an entire category! However, it can be turned off at almost any stage of the game</li>
+                <li>ANY repeated letter is counted as incorrect and will also carry a penalty</li>
+                <li>You have 9 chances, with 10 incorrect guesses being game over</li>
+            </ul>
+
+        </section>
+
+        <!-- Section displaying chosen category, word and previous guesses made -->
+        <section class="flex-wrapper">
+
+            <section class="word-info-display">
+                <h3>Word Information</h3>
+                <h2 id="show-category"></h2>
+                <p id="previous-guesses"></p>
+                <p id="word-info"></p>
+            </section>
+
+        </section>
+
+        <!-- Dynamic Hangman image container -->
+        <section class="image">
+            <img id="hangman-img" src="media/images/0.jpg" alt="hangman image" />
+        </section>
+
+        <!-- Area where user can input and submit their guess -->
+        <input type="text" id="guess" placeholder="Guess">
+        <button id="submit-guess" type="submit">Submit</button>
+
+    </section>
+
+    <!-- Section containing word to be guessed, which is hidden by default -->
+    <section class="word-container">
+        <span id="word-box"></span>
+    </section>
+
+    <!-- Three main scripts are used in this program: -->
+    
+    <script src="config.js"></script>
+    <!-- The categories and words used in the game, stored as objects -->
+    <script src="words.js"></script>
+    <!-- All global vars, along with destructured sound settings -->
+    <script src="globals.js"></script>
+    <!-- The main JS file that controls and manages the game and its flow -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

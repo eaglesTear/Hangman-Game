@@ -1,0 +1,370 @@
+/* General styles toggle theme mode */
+:root {
+    --peach-orange: hsl(34, 62%, 76%);
+    --black: hsl(0, 0%, 0%);
+    --darker-grey: hsl(200, 17%, 79%);
+    --dark-blue: hsl(225, 31%, 27%);
+    --brown: hsl(14, 7%, 55%);
+    --indian-red: hsl(354, 34%, 44%);
+}
+
+* {
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-family: 'Carter One', cursive;
+}
+
+body,
+.overlay {
+    background-color: var(--black);
+}
+
+.main-flex-wrapper {
+    flex-direction: column;
+}
+
+.flex-wrapper h1,
+p {
+    margin: 5%;
+}
+
+.main-flex-wrapper,
+.menu-panel,
+.panel-left,
+.panel-right,
+.flex-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Menu panel with buttons at top of screen where the game is controlled  */
+.menu-panel {
+    justify-content: space-between;
+}
+
+.menu-panel h1,
+.logo {
+    margin-left: 15%;
+}
+
+.menu-panel,
+button[type=submit] {
+    background-color: var(--dark-blue);
+}
+
+.menu-panel button {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.flex-wrapper,
+.menu-panel button,
+.rules,
+.menu-panel button,
+#word-box {
+    background-color: var(--peach-orange);
+}
+
+.menu-panel button,
+button {
+    font-size: 1rem;
+}
+
+.panel-right {
+    margin-right: 2%;
+}
+
+.logo {
+    width: 60px;
+}
+
+.logo,
+#hangman-img {
+    height: auto;
+}
+
+.main-title,
+#end-round-text,
+.sidebar #close-btn {
+    font-size: 2.3rem;
+}
+
+.main-title,
+.menu-panel button,
+#previous-guesses,
+.credits,
+a {
+    color: var(--indian-red);
+}
+
+/* Inside 'main flex wrapper': contains main content / sections */
+
+h3,
+.flex-wrapper,
+.rules,
+.word-info-display,
+.image {
+    margin: 2% 5%;
+}
+
+.rules,
+.word-info-display {
+    line-height: 1.8;
+    padding: 15px;
+}
+
+.flex-wrapper,
+.rules,
+#hangman-img {
+    border: 5px solid var(--dark-blue);
+}
+
+.flex-wrapper,
+.rules,
+.word-info-display,
+#hangman-img,
+#word-box,
+button,
+input {
+    border-radius: 15px;
+}
+
+.rules {
+    padding: 30px;
+    width: 50%;
+}
+
+#hangman-img {
+    height: 350px;
+    width: 250px;
+}
+
+span {
+    font-size: 2.1rem;
+}
+
+/* This is the area that the random word appears in */
+.word-container {
+    margin: 2.5% 0 3.8% 0;
+}
+
+#word-box {
+    display: inline;
+}
+
+/* Class applied to word via JS when once generated */
+.word-border {
+    border: 5px solid var(--dark-blue);
+}
+
+/* Letters of the hangman game inside word box - hidden until guessed */
+.letter {
+    border-bottom: 2px solid var(--dark-blue);
+    margin: 10px 15px;
+    visibility: hidden;
+}
+
+/* Class applied with JS that reveals the letter on correct guess */
+.letter-reveal {
+    visibility: visible;
+}
+
+/* Main button and input styles */
+button,
+.overlay p {
+    padding: 8px;
+}
+
+button,
+input {
+    font-family: 'Fredoka One', cursive;
+    margin: 15px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    width: 120px;
+}
+
+input {
+    border: 3px solid var(--brown);
+}
+
+.credits,
+.overlay p,
+input,
+.word-info-display {
+    font-size: 1.3rem;
+}
+
+.menu-panel button:active {
+    box-shadow: inset 0 0 0 3px var(--peach-orange);
+}
+
+button[type=submit]:active {
+    box-shadow: inset 0 0 0 3px var(--brown);
+}
+
+.menu-panel button:active,
+button[type=submit]:active {
+    outline: none;
+}
+
+input,
+.word-border,
+button[type=submit] {
+    padding: 15px;
+    width: 110px;
+}
+
+h3,
+#show-category,
+#word-info,
+input,
+.sidebar,
+.word-container,
+.overlay {
+    text-align: center;
+}
+
+.overlay,
+.sidebar h2,
+.sidebar button,
+.sidebar #close-btn,
+.menu-panel button:hover,
+.menu-panel button:focus,
+button[type=submit] {
+    color: var(--peach-orange);
+}
+
+.menu-panel button:hover,
+.menu-panel button:focus,
+button[type=submit]:hover,
+button[type=submit]:focus,
+.sidebar button {
+    background-color: var(--indian-red);
+}
+
+button:hover:not([type=submit], .menu-panel button),
+button:focus:not([type=submit], .menu-panel button) {
+    transform: scale(1.1);
+}
+
+/* Sidebar containing category select */
+.sidebar {
+    bottom: 0;
+    overflow-x: hidden;
+    padding-top: 50px;
+    right: 0;
+    top: 0;
+    transition: 0.8s;
+    width: 0;
+    border-left: 4px solid var(--dark-blue);
+}
+
+.sidebar,
+.overlay {
+    background-color: var(--black);
+    position: fixed;
+    z-index: 1;
+}
+
+.sidebar h2,
+.sidebar button {
+    padding: 15px;
+}
+
+.sidebar h2,
+.sidebar button,
+.overlay {
+    text-shadow: 2px 2px 20px var(--peach-orange);
+}
+
+.sidebar h2 {
+    margin-top: 15px;
+}
+
+.sidebar button {
+    margin: 18px 0;
+    transition: 0.6s;
+    width: 150px;
+}
+
+.sidebar #close-btn {
+    left: 25px;
+    position: absolute;
+    top: 15px;
+}
+
+/* Class applied to the sidebar via JS that when toggling on and off */
+.sidebar-active {
+    width: 250px;
+}
+
+/* Overlay that is displayed on game over or when round is won */
+.overlay,
+.overlay-content {
+    width: 100%;
+}
+
+.overlay {
+    height: 0;
+    left: 0;
+    opacity: 0.9;
+    overflow-y: hidden;
+    top: 0;
+    transition: 3s;
+}
+
+.overlay-content {
+    margin-top: 30px;
+    position: relative;
+    top: 10%;
+}
+
+.overlay p {
+    transition: 0.3s;
+}
+
+/* Classes that open and close the overlay - applied with JS */
+.overlay-slide-in {
+    height: 100%;
+}
+
+.overlay-slide-out {
+    height: 0;
+}
+
+/* Media breakpoints */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 1.125rem;
+    }
+}
+
+/* Some text and overflow tweaks for a smaller screen */
+@media screen and (max-height: 450px) {
+
+    .overlay {
+        overflow-y: auto;
+    }
+
+    .overlay p {
+        font-size: 1.25rem;
+    }
+}
