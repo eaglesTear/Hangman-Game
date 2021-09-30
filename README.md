@@ -7,3 +7,5 @@ I have included instructions at the top of the webpage that explain how my versi
 
 Me and my friend found this really addictive.
 May you have a lot of fun with this!
+
+![hangman](https://user-images.githubusercontent.com/68791163/135513858-314d308b-f11d-4f2b-a4d9-451d7249a6c3.PNG)
