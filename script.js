@@ -507,14 +507,13 @@ function playBtnUI(event) {
     buttons.forEach(btn => {
         btn.addEventListener(event, () => {
             toom.play();
-        })
+        });
     });
 }
 
 // Attach the ui sounds to the buttons via both focus and mouseover events
 playBtnUI("mouseover");
 playBtnUI("focus");
-
 
 // Change user input to uppercase, same as word array - ensures matches are found
 userGuess.onkeyup = () => {
