@@ -1,44 +1,9 @@
-// Access Wordnik API for random word category select
-fetch("http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=3&a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-
-    // Request the data in JSON format, then run a callback to enter it into the program
-    .then(res => res.json())
-    .then(data => {
-
-        // Store data from API object directly into var for this program
-        let randomAPIWord = [data[0].word, data[1].word, data[2].word];
-
-        // Map a new array, that turns the above into uppercase for matching purposes
-        randomAPIWord = randomAPIWord.map((w) => {
-            return w.toUpperCase()
-        });
-
-        // Insert Wordnik API random word array into the program & gen random word in it
-        randomBtn.onclick = () => {
-
-            // If game has started already or is over, don't proceed
-            if (gameInProgress || gameIsOver) return;
-
-            // This category will be displayed to user inside DOM
-            category = "Random";
-
-            // The random word array is passed into the game and random word selected
-            genRandomWordInCategory(randomAPIWord);
-            alert("Random Words \nThere are " + userArr.length + " words in here to complete.");
-        }
-    })
-
-    // Log any errors, such as when too many API requests are made
-    .catch(err => console.log("There is an issue - check script & API key"))
-
-
 // Set whatever category (array) user selects, select random word in it & assign to a var
 function genRandomWordInCategory(currentArr) {
     let randomNumber = Math.floor(Math.random() * currentArr.length);
     window.randomWord = currentArr[randomNumber];
     userArr = currentArr;
 }
-
 
 // Sidebar functionality
 sidebarOpenBtn.onclick = () => {
@@ -48,7 +13,6 @@ sidebarOpenBtn.onclick = () => {
 sidebarCloseBtn.onclick = () => {
     categorySidebar.classList.remove("sidebar-active");
 }
-
 
 // Button functionality - inserts user's other chosen categories into the game
 moviesBtn.onclick = () => {
