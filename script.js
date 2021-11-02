@@ -1,7 +1,5 @@
 // Access Wordnik API for random word category select
-const apiKey = config.api_key;
-
-fetch("http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=3&api_key=" + apiKey)
+fetch("http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=true&minCorpusCount=0&minLength=5&maxLength=15&limit=3&a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
 
     // Request the data in JSON format, then run a callback to enter it into the program
     .then(res => res.json())
